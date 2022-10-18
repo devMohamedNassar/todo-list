@@ -1,0 +1,19 @@
+@mixin skew-bg($toRight: true) {
+  position: absolute;
+  top: 0;
+  right: if($toRight==true,0,auto);
+  left: if($toRight==false,0,auto);
+  z-index: -1;
+  height: 100%;
+  width: 60px;
+  background-color: var(--bg);
+  transform: skew(-35deg, 0) translateX(if($toRight==true,50%,-50%));
+  [dir=rtl] & {
+    right: if($toRight==true,auto,0);
+    left: if($toRight==false,auto,0);
+    transform: skew(-35deg, 0) translateX(if($toRight==true,-50%,50%));
+  }
+  @media (max-width: 650px) {
+    display: none;
+  }
+}

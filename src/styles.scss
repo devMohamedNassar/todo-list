@@ -1,1 +1,163 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/styles';
+
+/*
+** GLOBAL STYLE
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  margin: 0;
+  @media (max-width: 650px) {
+    background-color: #f0efea;
+  }
+}
+
+main {
+  height: 678px;
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #f0efea;
+  @media (max-width: 650px) {
+    margin-top: 0;
+  }
+}
+
+/*
+** HEADER STYLE
+*/
+header {
+  --bg: #03b0ac;
+  --header-height: 120px;
+  --bg-width: calc((50% - 45px)  + 45px); 
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 90px;
+  column-gap: 90px;
+  height: var(--header-height);
+  align-content: center;
+  position: relative;
+  z-index: 1;
+  @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+  &:after {
+    content: "";
+    @include skew-bg(false);
+    right: auto;
+    left: var(--bg-width);
+    width: 118px;
+    [dir=rtl] & {
+      left: auto;
+      right: var(--bg-width);
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--bg-width);
+    background-color: var(--bg);
+    [dir=rtl] & {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  .barcode {
+    position: absolute;
+    left: 45px;
+    bottom: -25px;
+    z-index: 2;
+
+    [dir=rtl] & {
+      right: 45px;
+      left: auto;
+    }
+    @media (max-width: 650px) {
+      box-shadow: 0 0 5px rgb(0 0 0 / 48%);
+      right: 15px;
+      left: auto;
+      bottom: -43px;
+      [dir=rtl] & {
+        right: auto;
+        left: 15px;
+      }
+    }
+
+  }
+}
+
+.first-part {
+  --bg: #004e75;
+  height: 60px;
+  background-color: var(--bg);
+  position: relative;
+  z-index: 1;
+  &:after {
+    content: "";
+    @include skew-bg(true);
+  }
+  &__title {
+    text-align: right;
+    color: #e6e5e2;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    line-height: 18px;
+    margin-inline-start: 18px;
+    span {
+      text-transform: capitalize;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    [dir=rtl] & {
+      text-align: left;
+    }
+    @media (max-width: 650px) {
+      text-align: center !important;
+    }
+  }
+}
+
+.second-part {
+  --bg: #f9f9f9;
+  height: 60px;
+  background-color: var(--bg);
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  padding: 15px;
+  margin-inline-start: 20px;
+  &:after {
+    content: "";
+    @include skew-bg(false);
+  }
+  @media (max-width: 650px) {
+    margin: 0;
+  }
+  &__logo-wrap {
+    width: 35px;
+    height: 35px;
+    background-color: #014e73;
+    border-radius: 5px;
+    margin-inline-start: 15px;
+  }
+  &__logo {
+    width: 25px;
+    margin-inline-start: 6px;
+    margin-top: 5px;
+    [dir=rtl] & {
+      margin-inline-start: 3px;
+    }
+  }
+  &__title {
+    color: #02b0a7;
+    font-size: 14px;
+  }
+}
