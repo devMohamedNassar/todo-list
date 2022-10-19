@@ -1,0 +1,76 @@
+:host {
+  margin: 60px auto 0;
+  max-width: 290px;
+  min-height: 400px;
+  background-color: #fff;
+  display: block;
+  padding: 45px 30px;
+  position: relative;
+  box-shadow: 0 0 5px rgb(0 0 0 / 5%);
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  &__wrap {
+    display: flex;
+  }
+  &__day {
+    color: #5f616f;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    margin-inline-end: 4px;
+  }
+  &__month {
+    text-transform: uppercase;
+    color: #79797f;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  &__year {
+    font-size: 10px;
+    color: #afafb1;
+    font-weight: 700;
+  }
+  &__day-name {
+    color: #9b9ba3;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+  }
+}
+
+.add-btn {
+  position: absolute;
+  bottom: -52px;
+  left: 50%;
+  translate: -50% -50%;
+
+  button {
+    width: 55px;
+    height: 55px;
+    background-color: #51e3a5;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      width: 3px;
+      height: 15px;
+      background-color: #46be89;
+    }
+    &:before {
+      rotate: 90deg;
+    }
+  }
+}

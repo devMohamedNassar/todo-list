@@ -1,0 +1,21 @@
+<div class="date">
+  <div class="date__wrap">
+    <div class="date__day">12</div>
+    <div>
+      <div class="date__month">jan</div>
+      <div class="date__year">2016</div>
+    </div>
+  </div>
+  <div class="date__day-name">tuesday</div>
+</div>
+
+<app-todo-item 
+  *ngFor="let task of tasks" 
+  [task]="task" 
+  (markAsDone)="onMarkAsDone(task)"
+  (deleteTask)="onDeleteTask(task)"
+  (editTask)="onEditTask(task)"
+  ></app-todo-item>
+<div class="add-btn">
+  <button (click)="addTask()"></button>
+</div>

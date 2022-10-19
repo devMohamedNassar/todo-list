@@ -1,0 +1,13 @@
+<div class="todo-item">
+  <h3 class="todo-item__title" [class.todo-item__title--done]="task.done">{{task.name}}</h3>
+  <div class="todo-item__icon" [class.todo-item__icon--done]="task.done">
+  </div>
+  <div class="todo-item__actions">
+    <button 
+      (click)="markAsDone.emit()" 
+      *ngIf="!task.done"
+      class="todo-item__action">Mark as done</button>
+    <button (click)="editTask.emit()" class="todo-item__action">Edit</button>
+    <button (click)="deleteTask.emit()" class="todo-item__action">Delete</button>
+  </div>
+</div>
