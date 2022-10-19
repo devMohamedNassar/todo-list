@@ -14,3 +14,11 @@
 
   <app-todo-list></app-todo-list>
 </main>
+
+<div class="toggle-dir" dir="ltr">
+  <h3>toggle direction</h3>
+  <input type="radio" id="ltr" value="ltr" [ngModel]="'ltr'" (ngModelChange)="updateDir($event)">
+  <label for="ltr">LTR</label><br>
+  <input type="radio" id="rtl" value="rtl" ngModel (ngModelChange)="updateDir($event)">
+  <label for="rtl">RTL</label>
+</div>

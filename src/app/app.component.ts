@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'to-do-list';
+
+  constructor(@Inject(DOCUMENT) private document: Document){}
+
+  updateDir(dir: 'ltr' | 'rtl'){
+    const htmlElem = this.document.querySelector('html');
+    if(!htmlElem) return;
+    htmlElem.dir = dir;
+  }
 }
